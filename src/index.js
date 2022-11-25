@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-refs = {
+const refs = {
     form: document.querySelector('.search-form'),
     searchField: document.querySelector('[name="searchQuery"]'),
     loadMoreBtn: document.querySelector('[type="button"]'), 
