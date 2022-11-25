@@ -22,7 +22,7 @@ const searchParams = {
     Q: '',
     IMAGE_TYPE: 'photo',
     ORIENTATION: 'horizontal',
-    SAFESEARCH: false,
+    SAFESEARCH: true,
     PER_PAGE: 40,
 
 }
