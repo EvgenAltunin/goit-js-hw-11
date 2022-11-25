@@ -14,8 +14,7 @@ refs = {
 
 const lightbox = new SimpleLightbox('.gallery a', {captionDelay: 250});
 
-// refs.searchField.value = 'dog'
-
+// refs.searchField.value = 'dog';
 
 const searchParams = {
     BASE_URL: 'https://pixabay.com/api/',
@@ -30,19 +29,17 @@ const searchParams = {
 
 let page = 1; 
 
-
-hideLoadMoreBtn()
+hideLoadMoreBtn();
 
 refs.form.addEventListener('submit', onFormSubmit);
-refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick)
-
+refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
 function onFormSubmit(event) { 
     event.preventDefault();
     page = 1; 
 
-    clearGallery() 
-    hideLoadMoreBtn()
+    clearGallery();
+    hideLoadMoreBtn();
 
 
     if (event.currentTarget.searchQuery.value.trim() === "") {
@@ -52,13 +49,13 @@ function onFormSubmit(event) {
     searchParams.Q = event.currentTarget.searchQuery.value; 
     
 
-    showResult()
+    showResult();
 
 }
 
 function onLoadMoreBtnClick(event) {
-    page += 1
-    showResult()
+    page += 1;
+    showResult();
 }
 
 function clearGallery() {
@@ -79,62 +76,52 @@ async function fetchImages(searchParams, page) {
     const {BASE_URL, KEY, Q, IMAGE_TYPE, ORIENTATION, SAFESEARCH, PER_PAGE } = searchParams;    
     const response = await axios.get(`${BASE_URL}?key=${KEY}&q=${Q}&image_type=${IMAGE_TYPE}&${ORIENTATION}&${SAFESEARCH}&page=${page}&per_page=${PER_PAGE}`);
         
-        
- 
-        let responseData = response.data;
-        console.log(responseData)
-        console.log(responseData.hits)
+    let responseData = response.data;
+    console.log(responseData);
+    console.log(responseData.hits);
 
-        return responseData
-        
+    return responseData
 
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-    
 }
 
 async function showResult() {
-
-
     try {
         const data = await fetchImages(searchParams, page);
 
         if (data.total === 0) {
-            Notify.failure('Sorry, there are no images matching your search query. Please try again')
+            Notify.failure('Sorry, there are no images matching your search query. Please try again');
             return
         }
 
         if (data.total > 0 && page === 1) {
-            Notify.success(`Hooray! We found ${data.total} images.`)
+            Notify.success(`Hooray! We found ${data.total} images.`);
             const galleryItemsMurkup = await createGalleryItemsMurkup(data);
             refs.galleryContainer.insertAdjacentHTML('beforeend', galleryItemsMurkup);
-            showLoadMoreBtn()
+            showLoadMoreBtn();
         } else if (data.total > 0 && page > 1) {
             const galleryItemsMurkup = await createGalleryItemsMurkup(data);
             refs.galleryContainer.insertAdjacentHTML('beforeend', galleryItemsMurkup);
-            showLoadMoreBtn()
+            showLoadMoreBtn();
         }
         
         if (data.total > 0 && page > 1 && data.hits.length < searchParams.PER_PAGE) {
-            Notify.warning("We're sorry, but you've reached the end of search results.")
-            hideLoadMoreBtn()
+            Notify.warning("We're sorry, but you've reached the end of search results.");
+            hideLoadMoreBtn();
         }
-        
         
         lightbox.refresh();
      
     } catch (error) {
-        console.log(error)
-
+        console.log(error);
     }    
 }
 
 function createGalleryItemsMurkup(data) {
-
     return data.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return `
-
                 <div class="photo-card">
                 
                     <a class="gallery__item" href="${largeImageURL}">
@@ -165,7 +152,3 @@ function createGalleryItemsMurkup(data) {
     })
         .join('');
 }
-
-
-
-// 
