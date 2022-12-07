@@ -50,10 +50,10 @@ function onEscKeyPress(event) {
 }
 
 function onFeedbackFormSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
     // console.log(feedbackFormData);
-    // event.currentTarget.reset();
-    // onFeedbackModalClose()
+    event.currentTarget.reset();
+    onFeedbackModalClose()
     localStorage.removeItem(STORAGE_KEY);
     console.log(feedbackFormData)
 
