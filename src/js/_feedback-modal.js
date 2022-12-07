@@ -56,7 +56,7 @@ function onFeedbackFormSubmit(event) {
     // onFeedbackModalClose()
     localStorage.removeItem(STORAGE_KEY);
     console.log(feedbackFormData)
-    saveFormDataToLocalstorage(messageNumber, feedbackFormData)
+
 }
 
 function onFeedbackFormInput(event) {
