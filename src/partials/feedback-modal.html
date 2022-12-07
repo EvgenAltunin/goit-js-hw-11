@@ -12,7 +12,7 @@
             <label class="feedback-form__lable">
                 Name:
                 <div class="feedback-form__thumb">
-                    <input class="feedback-form__input" type="text" id="user-name" name="name" placeholder="Enter your name" required/>
+                    <input class="feedback-form__input feedback-form__input--name" type="text" name="name" placeholder="Enter your name" required/>
                     <svg class="feedback-form__input-icon" height="18" width="18">
                         <use href="/src/images/sprite.svg#icon-person"></use>   
                     </svg>
@@ -22,7 +22,7 @@
             <label class="feedback-form__lable">
                 Email:
                 <div class="feedback-form__thumb">
-                    <input class="feedback-form__input" type="email" id="user-email" placeholder="example@email.com" name="email" required/>
+                    <input class="feedback-form__input feedback-form__input--email" type="email" placeholder="example@email.com" name="email" required/>
                     <svg class="feedback-form__input-icon" height="18" width="18">
                         <use href="/src/images/sprite.svg#icon-email"></use>
                     </svg>
@@ -31,7 +31,7 @@
             </label>
             <label class="feedback-form__lable">
                 Message:
-                <textarea class="feedback-form__input feedback-form__input--textarea" name="message" id="user-message" placeholder="Enter your question here" name="userMessage" required></textarea>
+                <textarea class="feedback-form__input feedback-form__input--textarea-message" name="message" placeholder="Enter your question here" name="userMessage" required></textarea>
             </label>
             <button class="button feedback-form__submit-button" type="submit">SEND</button>
         </form>

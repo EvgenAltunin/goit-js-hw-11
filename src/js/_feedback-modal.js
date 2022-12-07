@@ -3,9 +3,9 @@ const refs = {
     closeFeedbackModalBtn: document.querySelector('[data-action="close-feedback-modal"]'),
     feedbackBackdrop: document.querySelector('.js-feedback-backdrop'),
     feedbackForm: document.querySelector('.feedback-form'),
-    formFieldName: document.querySelector('[id="user-name"]'),
-    formFieldEmail: document.querySelector('[id="user-email"]'),
-    formFieldMessage: document.querySelector('[id="user-message"]'),
+    formFieldName: document.querySelector('.feedback-form__input--name'),
+    formFieldEmail: document.querySelector('.feedback-form__input--email'),
+    formFieldMessage: document.querySelector('.feedback-form__input--textarea-message'),
     feedbackFormSubmitBtn: document.querySelector('.feedback-form__submit-button')
 }
 
