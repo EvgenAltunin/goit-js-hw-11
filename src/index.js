@@ -5,16 +5,20 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
+    body: document.body,
+    sectionGallery: document.querySelector('.section__gallery'),
+    photoCard: document.querySelectorAll('.photo-card'),
     form: document.querySelector('.search-form'),
     searchField: document.querySelector('[name="searchQuery"]'),
-    loadMoreBtn: document.querySelector('[type="button"]'), 
-    galleryContainer: document.querySelector('.gallery')
+    loadMoreBtn: document.querySelector('.button__load-more'), 
+    galleryContainer: document.querySelector('.gallery'), 
+    colorChangeBtn: document.querySelector('.color-change-btn')
     
 }
 
 const lightbox = new SimpleLightbox('.gallery a', {captionDelay: 250});
 
-// refs.searchField.value = 'dog';
+refs.searchField.value = 'dog';
 
 const searchParams = {
     BASE_URL: 'https://pixabay.com/api/',
@@ -151,4 +155,23 @@ function createGalleryItemsMurkup(data) {
         `
     })
         .join('');
+}
+
+
+refs.colorChangeBtn.addEventListener('click', colorChangeBtnClick)
+
+function colorChangeBtnClick(event) {
+    if (event.currentTarget.textContent.toLowerCase() === 'light') {
+        refs.body.classList.add('dark-theme')
+        refs.sectionGallery.classList.add('dark-theme')
+        refs.photoCard.classList.add('dark-theme-card')
+        event.currentTarget.textContent = 'Dark'
+    } else if (event.currentTarget.textContent.toLowerCase() === 'dark') {
+        refs.body.classList.remove('dark-theme')
+        refs.sectionGallery.classList.remove('dark-theme')
+        refs.photoCard.classList.remove('dark-theme-card')
+        event.currentTarget.textContent = 'Light'
+    }
+    
+    
 }
