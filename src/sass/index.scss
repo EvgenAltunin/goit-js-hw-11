@@ -1,15 +1,7 @@
-@import './base/common';
-@import './base/normalize';
-@import './base/nulling-style';
-@import './base/variables';
-
-@import './utils/visually-hidden';
-@import './utils/mixins';
-@import './common';
-
-@import './components/header';
+@import '../sass/utils/normalize';
+@import '../sass/utils/section';
+@import '../sass/utils/container';
+@import '../sass/utils/button';
+@import '../sass/utils//visually-hiden';
+@import './components/search-form';
 @import './components/gallery';
-@import './components/footer';
-
-@import './components/modal/feedback-modal';
-@import './thank-page'

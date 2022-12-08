@@ -1,5 +1,3 @@
-
-import './js/feedback-modal'
 import '../css/styles.css';
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -24,7 +22,7 @@ const searchParams = {
     Q: '',
     IMAGE_TYPE: 'photo',
     ORIENTATION: 'horizontal',
-    SAFESEARCH: false,
+    SAFESEARCH: true,
     PER_PAGE: 40,
 
 }
@@ -154,4 +152,3 @@ function createGalleryItemsMurkup(data) {
     })
         .join('');
 }
->>>>>>> parent of 1b03a50 (Update index.js)

@@ -1,0 +1,79 @@
+//  <div class="photo-card">
+//     <a class="gallery__item" href="${largeImageURL}">
+//     <img class="photo-card__img" src="${webformatURL}" alt=""${tags} loading="lazy" />
+//     <div class="info">
+//         <p class="info-item">
+//             <b>Likes </b>${likes} 
+//         </p>
+//         <p class="info-item">
+//             <b>Views </b>
+//             ${views} 
+//         </p>
+//         <p class="info-item">
+//             <b>Comments </b>
+//             ${comments} 
+//         </p>
+//         <p class="info-item">
+//             <b>Downloads </b>
+//             ${downloads}</p>
+//     </div>
+// </div>
+
+.section__gallery {
+    z-index: 1;
+
+    padding-top: 50px;    
+    padding-bottom: 30px;
+}
+
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.photo-card {
+    display: flex;
+    flex-direction: column;
+
+    flex-basis: calc((100% - 45px) / 4);
+        min-width: 215px;
+    
+    overflow: hidden;
+
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+}
+
+.photo-card:hover {
+    transform: scale(1.03);
+}
+
+.photo-card__img {
+    display: block;
+    height: 240px;
+    width: 100%;
+
+
+    object-fit: cover;
+    transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.info {
+    padding: 10px;
+}
+
+.button__load-more {
+    margin-left: auto;
+    margin-right: auto;
+}
+
